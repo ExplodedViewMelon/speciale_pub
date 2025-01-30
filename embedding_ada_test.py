@@ -152,6 +152,6 @@ class MaterialEmbedded:
 
 
 # embedder = Embedder()
-fz = FindZebra()
+# fz = FindZebra()
 
 # print(embedder.get_embeddings(["Oh hello", "Morning"]))
