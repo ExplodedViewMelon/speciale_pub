@@ -17,9 +17,11 @@ def sectionize(content: str):
 
 
 class Embedder:
-    def __init__(self) -> None:
+    def __init__(self, api_key: str = "") -> None:
         self.tokens_used = 0
-        self.client = OpenAI(api_key=get_openai_token())
+        if not api_key:
+            api_key = get_openai_token()
+        self.client = OpenAI(api_key)
 
     def get_embedding(self, content: str, max_retries=3):
         for _ in range(max_retries):
@@ -149,7 +151,7 @@ class MaterialEmbedded:
         return [self.chunks[i] for i in top_indices]
 
 
-embedder = Embedder()
+# embedder = Embedder()
 fz = FindZebra()
 
 # print(embedder.get_embeddings(["Oh hello", "Morning"]))
